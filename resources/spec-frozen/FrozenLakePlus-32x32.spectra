@@ -1,0 +1,506 @@
+spec FrozenLakePlus
+
+define DIM_SIZE := 32;
+
+env Int(1..DIM_SIZE)[2] beast;
+env boolean beastWait;
+sys Int(1..DIM_SIZE)[2] agent;
+
+asm initiallyBeastWaitFalse:
+!beastWait;
+
+asm initiallyBeastAtGoal:
+(beast[0] = 24) & (beast[1] = 13);
+
+gar initiallyAgentAtLeftUpperCorner:
+agent[0] = 1 & agent[1] = 1;
+
+predicate moveAgent(Int(1..DIM_SIZE) pos):
+  pos+1 = next(pos) |
+  pos   = next(pos) |
+  pos-1 = next(pos);
+
+predicate moveBeast(Int(1..DIM_SIZE) pos):
+  pos+1 = next(pos) |
+  pos   = next(pos) |
+  pos-1 = next(pos);
+
+asm obsWaitSwitches:
+G (beastWait->next(!beastWait)) & (!beastWait->next(beastWait));
+
+asm obstacleDoesNotMoveWhenBeastWait:
+G beastWait -> (next(beast[0]) = beast[0] & next(beast[1]) = beast[1]);
+
+asm beastMovesAtMostOne:
+G moveBeast(beast[0]) & moveBeast(beast[1]);
+
+asm beastIsSmart:
+G  !beastWait -> ((beast[0] > agent[0] -> next(beast[0]) = beast[0] - 1) &
+   (beast[0] < agent[0] - 1 -> next(beast[0]) = beast[0] + 1) &
+   (beast[1] > agent[1] -> next(beast[1]) = beast[1] - 1) &
+   (beast[1] < agent[1] - 1 -> next(beast[1]) = beast[1] + 1));
+
+gar agentMovesAtMostOne:
+G moveAgent(agent[0]) & moveAgent(agent[1]);
+
+gar agentAvoidsBeast:
+G (agent[0] != next(beast[0]) | agent[1] != next(beast[1]));
+
+gar agentNotOnBeast:
+G (agent[0] != beast[0] | agent[1] != beast[1]) ;
+
+gar agentAvoidInfinitely0:
+G (agent[0] != 1 | agent[1] != 8);
+
+gar agentAvoidInfinitely1:
+G (agent[0] != 1 | agent[1] != 9);
+
+gar agentAvoidInfinitely2:
+G (agent[0] != 1 | agent[1] != 11);
+
+gar agentAvoidInfinitely3:
+G (agent[0] != 1 | agent[1] != 15);
+
+gar agentAvoidInfinitely4:
+G (agent[0] != 1 | agent[1] != 29);
+
+gar agentAvoidInfinitely5:
+G (agent[0] != 1 | agent[1] != 30);
+
+gar agentAvoidInfinitely6:
+G (agent[0] != 2 | agent[1] != 6);
+
+gar agentAvoidInfinitely7:
+G (agent[0] != 2 | agent[1] != 8);
+
+gar agentAvoidInfinitely8:
+G (agent[0] != 2 | agent[1] != 9);
+
+gar agentAvoidInfinitely9:
+G (agent[0] != 3 | agent[1] != 4);
+
+gar agentAvoidInfinitely10:
+G (agent[0] != 3 | agent[1] != 5);
+
+gar agentAvoidInfinitely11:
+G (agent[0] != 3 | agent[1] != 21);
+
+gar agentAvoidInfinitely12:
+G (agent[0] != 4 | agent[1] != 6);
+
+gar agentAvoidInfinitely13:
+G (agent[0] != 4 | agent[1] != 11);
+
+gar agentAvoidInfinitely14:
+G (agent[0] != 4 | agent[1] != 15);
+
+gar agentAvoidInfinitely15:
+G (agent[0] != 4 | agent[1] != 17);
+
+gar agentAvoidInfinitely16:
+G (agent[0] != 4 | agent[1] != 26);
+
+gar agentAvoidInfinitely17:
+G (agent[0] != 5 | agent[1] != 6);
+
+gar agentAvoidInfinitely18:
+G (agent[0] != 5 | agent[1] != 7);
+
+gar agentAvoidInfinitely19:
+G (agent[0] != 5 | agent[1] != 12);
+
+gar agentAvoidInfinitely20:
+G (agent[0] != 5 | agent[1] != 15);
+
+gar agentAvoidInfinitely21:
+G (agent[0] != 5 | agent[1] != 17);
+
+gar agentAvoidInfinitely22:
+G (agent[0] != 5 | agent[1] != 27);
+
+gar agentAvoidInfinitely23:
+G (agent[0] != 6 | agent[1] != 4);
+
+gar agentAvoidInfinitely24:
+G (agent[0] != 6 | agent[1] != 17);
+
+gar agentAvoidInfinitely25:
+G (agent[0] != 6 | agent[1] != 26);
+
+gar agentAvoidInfinitely26:
+G (agent[0] != 7 | agent[1] != 7);
+
+gar agentAvoidInfinitely27:
+G (agent[0] != 7 | agent[1] != 17);
+
+gar agentAvoidInfinitely28:
+G (agent[0] != 7 | agent[1] != 18);
+
+gar agentAvoidInfinitely29:
+G (agent[0] != 7 | agent[1] != 20);
+
+gar agentAvoidInfinitely30:
+G (agent[0] != 7 | agent[1] != 22);
+
+gar agentAvoidInfinitely31:
+G (agent[0] != 7 | agent[1] != 26);
+
+gar agentAvoidInfinitely32:
+G (agent[0] != 7 | agent[1] != 31);
+
+gar agentAvoidInfinitely33:
+G (agent[0] != 9 | agent[1] != 3);
+
+gar agentAvoidInfinitely34:
+G (agent[0] != 9 | agent[1] != 20);
+
+gar agentAvoidInfinitely35:
+G (agent[0] != 9 | agent[1] != 24);
+
+gar agentAvoidInfinitely36:
+G (agent[0] != 9 | agent[1] != 31);
+
+gar agentAvoidInfinitely37:
+G (agent[0] != 10 | agent[1] != 13);
+
+gar agentAvoidInfinitely38:
+G (agent[0] != 10 | agent[1] != 15);
+
+gar agentAvoidInfinitely39:
+G (agent[0] != 10 | agent[1] != 18);
+
+gar agentAvoidInfinitely40:
+G (agent[0] != 10 | agent[1] != 22);
+
+gar agentAvoidInfinitely41:
+G (agent[0] != 10 | agent[1] != 32);
+
+gar agentAvoidInfinitely42:
+G (agent[0] != 11 | agent[1] != 3);
+
+gar agentAvoidInfinitely43:
+G (agent[0] != 11 | agent[1] != 13);
+
+gar agentAvoidInfinitely44:
+G (agent[0] != 11 | agent[1] != 18);
+
+gar agentAvoidInfinitely45:
+G (agent[0] != 12 | agent[1] != 27);
+
+gar agentAvoidInfinitely46:
+G (agent[0] != 13 | agent[1] != 25);
+
+gar agentAvoidInfinitely47:
+G (agent[0] != 13 | agent[1] != 28);
+
+gar agentAvoidInfinitely48:
+G (agent[0] != 14 | agent[1] != 1);
+
+gar agentAvoidInfinitely49:
+G (agent[0] != 14 | agent[1] != 11);
+
+gar agentAvoidInfinitely50:
+G (agent[0] != 14 | agent[1] != 30);
+
+gar agentAvoidInfinitely51:
+G (agent[0] != 14 | agent[1] != 32);
+
+gar agentAvoidInfinitely52:
+G (agent[0] != 15 | agent[1] != 4);
+
+gar agentAvoidInfinitely53:
+G (agent[0] != 15 | agent[1] != 9);
+
+gar agentAvoidInfinitely54:
+G (agent[0] != 15 | agent[1] != 22);
+
+gar agentAvoidInfinitely55:
+G (agent[0] != 16 | agent[1] != 12);
+
+gar agentAvoidInfinitely56:
+G (agent[0] != 16 | agent[1] != 14);
+
+gar agentAvoidInfinitely57:
+G (agent[0] != 16 | agent[1] != 18);
+
+gar agentAvoidInfinitely58:
+G (agent[0] != 16 | agent[1] != 26);
+
+gar agentAvoidInfinitely59:
+G (agent[0] != 16 | agent[1] != 29);
+
+gar agentAvoidInfinitely60:
+G (agent[0] != 17 | agent[1] != 22);
+
+gar agentAvoidInfinitely61:
+G (agent[0] != 17 | agent[1] != 23);
+
+gar agentAvoidInfinitely62:
+G (agent[0] != 17 | agent[1] != 30);
+
+gar agentAvoidInfinitely63:
+G (agent[0] != 18 | agent[1] != 12);
+
+gar agentAvoidInfinitely64:
+G (agent[0] != 18 | agent[1] != 15);
+
+gar agentAvoidInfinitely65:
+G (agent[0] != 18 | agent[1] != 20);
+
+gar agentAvoidInfinitely66:
+G (agent[0] != 18 | agent[1] != 30);
+
+gar agentAvoidInfinitely67:
+G (agent[0] != 19 | agent[1] != 30);
+
+gar agentAvoidInfinitely68:
+G (agent[0] != 20 | agent[1] != 11);
+
+gar agentAvoidInfinitely69:
+G (agent[0] != 20 | agent[1] != 13);
+
+gar agentAvoidInfinitely70:
+G (agent[0] != 20 | agent[1] != 28);
+
+gar agentAvoidInfinitely71:
+G (agent[0] != 20 | agent[1] != 29);
+
+gar agentAvoidInfinitely72:
+G (agent[0] != 21 | agent[1] != 5);
+
+gar agentAvoidInfinitely73:
+G (agent[0] != 21 | agent[1] != 23);
+
+gar agentAvoidInfinitely74:
+G (agent[0] != 21 | agent[1] != 27);
+
+gar agentAvoidInfinitely75:
+G (agent[0] != 21 | agent[1] != 28);
+
+gar agentAvoidInfinitely76:
+G (agent[0] != 21 | agent[1] != 29);
+
+gar agentAvoidInfinitely77:
+G (agent[0] != 22 | agent[1] != 3);
+
+gar agentAvoidInfinitely78:
+G (agent[0] != 22 | agent[1] != 27);
+
+gar agentAvoidInfinitely79:
+G (agent[0] != 22 | agent[1] != 30);
+
+gar agentAvoidInfinitely80:
+G (agent[0] != 23 | agent[1] != 3);
+
+gar agentAvoidInfinitely81:
+G (agent[0] != 24 | agent[1] != 9);
+
+gar agentAvoidInfinitely82:
+G (agent[0] != 24 | agent[1] != 19);
+
+gar agentAvoidInfinitely83:
+G (agent[0] != 24 | agent[1] != 24);
+
+gar agentAvoidInfinitely84:
+G (agent[0] != 25 | agent[1] != 14);
+
+gar agentAvoidInfinitely85:
+G (agent[0] != 25 | agent[1] != 16);
+
+gar agentAvoidInfinitely86:
+G (agent[0] != 25 | agent[1] != 19);
+
+gar agentAvoidInfinitely87:
+G (agent[0] != 25 | agent[1] != 26);
+
+gar agentAvoidInfinitely88:
+G (agent[0] != 26 | agent[1] != 13);
+
+gar agentAvoidInfinitely89:
+G (agent[0] != 26 | agent[1] != 16);
+
+gar agentAvoidInfinitely90:
+G (agent[0] != 26 | agent[1] != 26);
+
+gar agentAvoidInfinitely91:
+G (agent[0] != 26 | agent[1] != 31);
+
+gar agentAvoidInfinitely92:
+G (agent[0] != 27 | agent[1] != 5);
+
+gar agentAvoidInfinitely93:
+G (agent[0] != 27 | agent[1] != 8);
+
+gar agentAvoidInfinitely94:
+G (agent[0] != 27 | agent[1] != 12);
+
+gar agentAvoidInfinitely95:
+G (agent[0] != 27 | agent[1] != 16);
+
+gar agentAvoidInfinitely96:
+G (agent[0] != 27 | agent[1] != 27);
+
+gar agentAvoidInfinitely97:
+G (agent[0] != 28 | agent[1] != 6);
+
+gar agentAvoidInfinitely98:
+G (agent[0] != 28 | agent[1] != 11);
+
+gar agentAvoidInfinitely99:
+G (agent[0] != 28 | agent[1] != 16);
+
+gar agentAvoidInfinitely100:
+G (agent[0] != 28 | agent[1] != 22);
+
+gar agentAvoidInfinitely101:
+G (agent[0] != 28 | agent[1] != 29);
+
+gar agentAvoidInfinitely102:
+G (agent[0] != 28 | agent[1] != 31);
+
+gar agentAvoidInfinitely103:
+G (agent[0] != 29 | agent[1] != 5);
+
+gar agentAvoidInfinitely104:
+G (agent[0] != 29 | agent[1] != 8);
+
+gar agentAvoidInfinitely105:
+G (agent[0] != 29 | agent[1] != 17);
+
+gar agentAvoidInfinitely106:
+G (agent[0] != 29 | agent[1] != 23);
+
+gar agentAvoidInfinitely107:
+G (agent[0] != 29 | agent[1] != 26);
+
+gar agentAvoidInfinitely108:
+G (agent[0] != 30 | agent[1] != 1);
+
+gar agentAvoidInfinitely109:
+G (agent[0] != 30 | agent[1] != 2);
+
+gar agentAvoidInfinitely110:
+G (agent[0] != 30 | agent[1] != 29);
+
+gar agentAvoidInfinitely111:
+G (agent[0] != 32 | agent[1] != 11);
+
+gar agentAvoidInfinitely112:
+G (agent[0] != 32 | agent[1] != 32);
+
+gar VisitInfinitelyOften0:
+GF (agent[0] = 2 & agent[1] = 19);
+
+gar VisitInfinitelyOften1:
+GF (agent[0] = 3 & agent[1] = 20);
+
+gar VisitInfinitelyOften2:
+GF (agent[0] = 3 & agent[1] = 24);
+
+gar VisitInfinitelyOften3:
+GF (agent[0] = 3 & agent[1] = 27);
+
+gar VisitInfinitelyOften4:
+GF (agent[0] = 3 & agent[1] = 31);
+
+gar VisitInfinitelyOften5:
+GF (agent[0] = 4 & agent[1] = 19);
+
+gar VisitInfinitelyOften6:
+GF (agent[0] = 6 & agent[1] = 7);
+
+gar VisitInfinitelyOften7:
+GF (agent[0] = 6 & agent[1] = 28);
+
+gar VisitInfinitelyOften8:
+GF (agent[0] = 7 & agent[1] = 5);
+
+gar VisitInfinitelyOften9:
+GF (agent[0] = 7 & agent[1] = 23);
+
+gar VisitInfinitelyOften10:
+GF (agent[0] = 8 & agent[1] = 29);
+
+gar VisitInfinitelyOften11:
+GF (agent[0] = 9 & agent[1] = 5);
+
+gar VisitInfinitelyOften12:
+GF (agent[0] = 10 & agent[1] = 1);
+
+gar VisitInfinitelyOften13:
+GF (agent[0] = 10 & agent[1] = 14);
+
+gar VisitInfinitelyOften14:
+GF (agent[0] = 12 & agent[1] = 2);
+
+gar VisitInfinitelyOften15:
+GF (agent[0] = 12 & agent[1] = 16);
+
+gar VisitInfinitelyOften16:
+GF (agent[0] = 12 & agent[1] = 26);
+
+gar VisitInfinitelyOften17:
+GF (agent[0] = 14 & agent[1] = 20);
+
+gar VisitInfinitelyOften18:
+GF (agent[0] = 14 & agent[1] = 24);
+
+gar VisitInfinitelyOften19:
+GF (agent[0] = 16 & agent[1] = 22);
+
+gar VisitInfinitelyOften20:
+GF (agent[0] = 17 & agent[1] = 6);
+
+gar VisitInfinitelyOften21:
+GF (agent[0] = 18 & agent[1] = 6);
+
+gar VisitInfinitelyOften22:
+GF (agent[0] = 18 & agent[1] = 7);
+
+gar VisitInfinitelyOften23:
+GF (agent[0] = 18 & agent[1] = 31);
+
+gar VisitInfinitelyOften24:
+GF (agent[0] = 22 & agent[1] = 28);
+
+gar VisitInfinitelyOften25:
+GF (agent[0] = 23 & agent[1] = 13);
+
+gar VisitInfinitelyOften26:
+GF (agent[0] = 24 & agent[1] = 14);
+
+gar VisitInfinitelyOften27:
+GF (agent[0] = 26 & agent[1] = 15);
+
+gar VisitInfinitelyOften28:
+GF (agent[0] = 27 & agent[1] = 13);
+
+gar VisitInfinitelyOften29:
+GF (agent[0] = 27 & agent[1] = 15);
+
+gar VisitInfinitelyOften30:
+GF (agent[0] = 28 & agent[1] = 3);
+
+gar VisitInfinitelyOften31:
+GF (agent[0] = 28 & agent[1] = 18);
+
+gar VisitInfinitelyOften32:
+GF (agent[0] = 29 & agent[1] = 2);
+
+gar VisitInfinitelyOften33:
+GF (agent[0] = 29 & agent[1] = 12);
+
+gar VisitInfinitelyOften34:
+GF (agent[0] = 29 & agent[1] = 25);
+
+gar VisitInfinitelyOften35:
+GF (agent[0] = 31 & agent[1] = 26);
+
+gar VisitInfinitelyOften36:
+GF (agent[0] = 32 & agent[1] = 1);
+
+gar VisitInfinitelyOften37:
+GF (agent[0] = 32 & agent[1] = 9);
+
+gar VisitInfinitelyOften38:
+GF (agent[0] = 32 & agent[1] = 24);

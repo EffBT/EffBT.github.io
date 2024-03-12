@@ -1,0 +1,179 @@
+spec FrozenLakePlus
+
+define DIM_SIZE := 16;
+
+env Int(1..DIM_SIZE)[2] beast;
+env boolean beastWait;
+sys Int(1..DIM_SIZE)[2] agent;
+
+asm initiallyBeastWaitFalse:
+!beastWait;
+
+asm initiallyBeastAtGoal:
+(beast[0] = 12) & (beast[1] = 6);
+
+gar initiallyAgentAtLeftUpperCorner:
+agent[0] = 1 & agent[1] = 1;
+
+predicate moveAgent(Int(1..DIM_SIZE) pos):
+  pos+1 = next(pos) |
+  pos   = next(pos) |
+  pos-1 = next(pos);
+
+predicate moveBeast(Int(1..DIM_SIZE) pos):
+  pos+1 = next(pos) |
+  pos   = next(pos) |
+  pos-1 = next(pos);
+
+asm obsWaitSwitches:
+G (beastWait->next(!beastWait)) & (!beastWait->next(beastWait));
+
+asm obstacleDoesNotMoveWhenBeastWait:
+G beastWait -> (next(beast[0]) = beast[0] & next(beast[1]) = beast[1]);
+
+asm beastMovesAtMostOne:
+G moveBeast(beast[0]) & moveBeast(beast[1]);
+
+asm beastIsSmart:
+G !beastWait -> ((beast[0] > agent[0] -> next(beast[0]) = beast[0] - 1) &
+   (beast[0] < agent[0] - 1 -> next(beast[0]) = beast[0] + 1) &
+   (beast[1] > agent[1] -> next(beast[1]) = beast[1] - 1) &
+   (beast[1] < agent[1] - 1 -> next(beast[1]) = beast[1] + 1));
+
+gar agentMovesAtMostOne:
+G moveAgent(agent[0]) & moveAgent(agent[1]);
+
+gar agentAvoidsBeast:
+G (agent[0] != next(beast[0]) | agent[1] != next(beast[1]));
+
+gar agentNotOnBeast:
+G (agent[0] != beast[0] | agent[1] != beast[1]) ;
+
+gar agentAvoidInfinitely0:
+G (agent[0] != 1 | agent[1] != 8);
+
+gar agentAvoidInfinitely1:
+G (agent[0] != 1 | agent[1] != 15);
+
+gar agentAvoidInfinitely2:
+G (agent[0] != 2 | agent[1] != 1);
+
+gar agentAvoidInfinitely3:
+G (agent[0] != 2 | agent[1] != 11);
+
+gar agentAvoidInfinitely4:
+G (agent[0] != 3 | agent[1] != 2);
+
+gar agentAvoidInfinitely5:
+G (agent[0] != 3 | agent[1] != 5);
+
+gar agentAvoidInfinitely6:
+G (agent[0] != 3 | agent[1] != 12);
+
+gar agentAvoidInfinitely7:
+G (agent[0] != 3 | agent[1] != 13);
+
+gar agentAvoidInfinitely8:
+G (agent[0] != 3 | agent[1] != 14);
+
+gar agentAvoidInfinitely9:
+G (agent[0] != 3 | agent[1] != 15);
+
+gar agentAvoidInfinitely10:
+G (agent[0] != 4 | agent[1] != 6);
+
+gar agentAvoidInfinitely11:
+G (agent[0] != 4 | agent[1] != 7);
+
+gar agentAvoidInfinitely12:
+G (agent[0] != 4 | agent[1] != 10);
+
+gar agentAvoidInfinitely13:
+G (agent[0] != 5 | agent[1] != 4);
+
+gar agentAvoidInfinitely14:
+G (agent[0] != 5 | agent[1] != 5);
+
+gar agentAvoidInfinitely15:
+G (agent[0] != 5 | agent[1] != 13);
+
+gar agentAvoidInfinitely16:
+G (agent[0] != 6 | agent[1] != 4);
+
+gar agentAvoidInfinitely17:
+G (agent[0] != 6 | agent[1] != 6);
+
+gar agentAvoidInfinitely18:
+G (agent[0] != 6 | agent[1] != 16);
+
+gar agentAvoidInfinitely19:
+G (agent[0] != 7 | agent[1] != 2);
+
+gar agentAvoidInfinitely20:
+G (agent[0] != 7 | agent[1] != 7);
+
+gar agentAvoidInfinitely21:
+G (agent[0] != 7 | agent[1] != 8);
+
+gar agentAvoidInfinitely22:
+G (agent[0] != 7 | agent[1] != 14);
+
+gar agentAvoidInfinitely23:
+G (agent[0] != 9 | agent[1] != 6);
+
+gar agentAvoidInfinitely24:
+G (agent[0] != 9 | agent[1] != 14);
+
+gar agentAvoidInfinitely25:
+G (agent[0] != 10 | agent[1] != 3);
+
+gar agentAvoidInfinitely26:
+G (agent[0] != 10 | agent[1] != 7);
+
+gar agentAvoidInfinitely27:
+G (agent[0] != 11 | agent[1] != 3);
+
+gar agentAvoidInfinitely28:
+G (agent[0] != 12 | agent[1] != 12);
+
+gar agentAvoidInfinitely29:
+G (agent[0] != 13 | agent[1] != 3);
+
+gar agentAvoidInfinitely30:
+G (agent[0] != 13 | agent[1] != 14);
+
+gar agentAvoidInfinitely31:
+G (agent[0] != 14 | agent[1] != 11);
+
+gar agentAvoidInfinitely32:
+G (agent[0] != 15 | agent[1] != 16);
+
+gar agentAvoidInfinitely33:
+G (agent[0] != 16 | agent[1] != 2);
+
+gar agentAvoidInfinitely34:
+G (agent[0] != 16 | agent[1] != 5);
+
+gar agentAvoidInfinitely35:
+G (agent[0] != 16 | agent[1] != 8);
+
+gar VisitInfinitelyOften0:
+GF (agent[0] = 1 & agent[1] = 14);
+
+gar VisitInfinitelyOften1:
+GF (agent[0] = 2 & agent[1] = 12);
+
+gar VisitInfinitelyOften2:
+GF (agent[0] = 9 & agent[1] = 10);
+
+gar VisitInfinitelyOften3:
+GF (agent[0] = 11 & agent[1] = 6);
+
+gar VisitInfinitelyOften4:
+GF (agent[0] = 12 & agent[1] = 15);
+
+gar VisitInfinitelyOften5:
+GF (agent[0] = 13 & agent[1] = 4);
+
+gar VisitInfinitelyOften6:
+GF (agent[0] = 15 & agent[1] = 13);
