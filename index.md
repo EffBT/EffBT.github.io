@@ -9,9 +9,9 @@ To our knowledge,  **CCMOP** is the **first** runtime verification tool that imp
 
 *   [**Introduction**](introduction)
 
-*   [**Manual**](manual)
+<!-- *   [**Manual**](manual) -->
 
-*   [**Tutorial**](tutorial)
+<!-- *   [**Tutorial**](tutorial) -->
 
 *   [**Scenarios and Specifications**](specification)
 
