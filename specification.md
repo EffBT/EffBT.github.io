@@ -16,10 +16,10 @@ We demonstrate the specifications used in the experiment part of the Paper.
 ## [](#header-2) **2. The Cinderella-Stepmother Scenario**
 
 * [Cinderella-Stepmother-5-10.spectra](resources/spec-cinderella/cinderella-5x10.spectra)
-* [Cinderella-Stepmother-5-10.spectra](resources/spec-cinderella/cinderella-6x12.spectra)
-* [Cinderella-Stepmother-5-10.spectra](resources/spec-cinderella/cinderella-7x14.spectra)
-* [Cinderella-Stepmother-5-10.spectra](resources/spec-cinderella/cinderella-8x16.spectra)
-* [Cinderella-Stepmother-5-10.spectra](resources/spec-cinderella/cinderella-9x18.spectra)
+* [Cinderella-Stepmother-6-12.spectra](resources/spec-cinderella/cinderella-6x12.spectra)
+* [Cinderella-Stepmother-7-14.spectra](resources/spec-cinderella/cinderella-7x14.spectra)
+* [Cinderella-Stepmother-8-16.spectra](resources/spec-cinderella/cinderella-8x16.spectra)
+* [Cinderella-Stepmother-9-18.spectra](resources/spec-cinderella/cinderella-9x18.spectra)
 
 
 * * *
