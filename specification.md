@@ -7,6 +7,12 @@ We demonstrate the specifications used in the experiment part of the Paper.
 
 ## [](#header-2) **1. The FrozenLake+ Scenario**
 
+<br>
+
+<img src="resources/map-8x8.png" alt="framework" style="display:block; margin:- auto;">
+
+<br>
+
 * [FrozenLakePlus-8x8.spectra](resources/spec-frozen/FrozenLakePlus-8x8.spectra)
 * [FrozenLakePlus-16x16.spectra](resources/spec-frozen/FrozenLakePlus-16x16.spectra)
 * [FrozenLakePlus-24x24.spectra](resources/spec-frozen/FrozenLakePlus-24x24.spectra)

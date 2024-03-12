@@ -42,7 +42,7 @@ To our knowledge,  **CCMOP** is the **first** runtime verification tool that imp
 
 # [](#header-1)**Contacts**
 
-Please feel free to contact us if you have any questions about **EffBT**.
+Please feel free to contact us if you have any questions about our **EffBT**.
 
 *   <font color="#0000FF" size="4">Ziji Wu (wuziji@nudt.edu.cn)</font>
 
