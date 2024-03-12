@@ -13,7 +13,7 @@ To our knowledge,  **CCMOP** is the **first** runtime verification tool that imp
 
 *   [**Tutorial**](tutorial)
 
-*   [**Specifications Used**](specification)
+*   [**Scenarios and Specifications**](specification)
 
 
 * * *
