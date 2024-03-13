@@ -2,7 +2,7 @@
 layout: default
 ---
    
-**CCMOP** is a [**runtime verification**](https://en.wikipedia.org/wiki/Runtime_verification) (RV) tool for C/C++ program. 
+**EffBT** is a [**runtime verification**](https://en.wikipedia.org/wiki/Runtime_verification) (RV) tool for C/C++ program. 
 To our knowledge,  **CCMOP** is the **first** runtime verification tool that implements an aspect-oriented programming (AOP) based RV approach and supports the RV of general properties for C++ programs. **CCMOP** supports the RV of the properties specified in extended regular expressions (ERE) and finite state machines (FSM).
 
 * * *
