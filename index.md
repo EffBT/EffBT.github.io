@@ -2,7 +2,7 @@
 layout: default
 ---
    
-**EffBT** is an effective behavior tree synthesis and execution framework, that fills the gap []. Besides, we optimized the execution efficiency of generated BTs by applying the \textit{Parallel} node, while few prior focused on this aspect.
+**EffBT** is an effective behavior tree synthesis and execution framework, that fills the gap []. Besides, we optimized the execution efficiency of generated BTs by applying the **Parallel** node, while few prior focused on this aspect.
 
 * * *
 
