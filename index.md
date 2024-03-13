@@ -2,8 +2,7 @@
 layout: default
 ---
    
-**EffBT** is a [**runtime verification**](https://en.wikipedia.org/wiki/Runtime_verification) (RV) tool for C/C++ program. 
-To our knowledge,  **CCMOP** is the **first** runtime verification tool that implements an aspect-oriented programming (AOP) based RV approach and supports the RV of general properties for C++ programs. **CCMOP** supports the RV of the properties specified in extended regular expressions (ERE) and finite state machines (FSM).
+**EffBT** is an effective behavior tree synthesis and execution framework, that fills the gap []. Besides, we optimized the execution efficiency of generated BTs by applying the \textit{Parallel} node, while few prior focused on this aspect.
 
 * * *
 
@@ -22,9 +21,6 @@ To our knowledge,  **CCMOP** is the **first** runtime verification tool that imp
 * * *
 
 # [](#header-1)**Features**
-*   `Parametric`: **CCMOP** supports the parametric RV for C/C++ programs.
-
-*   `Applicability`: **CCMOP** can support real-world C/C++ programs.
 
 *   `Efficient`: The runtime overhead of **CCMOP** is acceptable, and the average runtime overhead is less than 10x compared to the original C/C++ programs. See more details in [**Evaluation results and reproduction**](evaluation).
 
