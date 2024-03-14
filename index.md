@@ -64,7 +64,7 @@ usage: java -jar spectra-cli.jar
 # [](#header-1)**Demonstration Vedio**
 
 <video width="860" height="485" controls>
-  <source src="resources/demo.mkv" type="video/mp4">
+  <source src="resources/effbt.demo.mp4" type="video/mp4">
 </video>
 
 
