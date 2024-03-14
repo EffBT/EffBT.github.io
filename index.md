@@ -31,7 +31,34 @@ layout: default
 * * *
 # [](#header-1)**Usage**
 
-We provide the runnable jar package of our tools [Download]()(80MB)
+We provide the runnable jar package of our tools [Download]()(80MB). 
+
+usage: java -jar spectra-cli.jar
+    --counter-strategy               Generate counter-strategy for an
+                                     unrealizable specification
+    --counter-strategy-jtlv-format   Generate counter-strategy for an
+                                     unrealizable specification and print
+                                     in JTLV format
+    --disable-grouping               Disable reorder with grouping
+    --disable-opt <arg>              Disable optimizations
+    --display                        Display generated controllers,
+                                     default flase
+ -i,--input <arg>                    Spectra input file name
+    --jtlv                           Use JTLV package instead of CUDD
+ -o,--output <arg>                   Ouptut folder
+    --reorder                        Reorder BDD before save for reduced
+                                     size
+ -s,--synthesize <arg>               Synthesize symbolic controller
+ -sim,--simulate <arg>               Simulate n (from input) times of the
+                                     FDS by calculate succs
+    --static                         Synthesize static symbolic controller
+ -synthBT,--synthBT <arg>            Synthesis a BT, while parms meaning
+                                     the synthesized BT type.
+ -v,--verbose                        Verbose logging
+    --well-separation                Check well-separation considering
+                                     system guarantees
+    --well-separation-ignore-sys     Check well-separation ignoring system
+                                     guarantees
 
 * * *
 # [](#header-1)**Demonstration Vedio**
