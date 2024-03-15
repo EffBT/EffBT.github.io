@@ -33,6 +33,7 @@ layout: default
 
 We provide the runnable JAR package of our tools [Download](resources/effbt_V1.0.jar)(50MB). 
 
+```
 usage: java -jar spectra-cli.jar
     --counter-strategy               Generate counter-strategy for an
                                      unrealizable specification
@@ -59,6 +60,8 @@ usage: java -jar spectra-cli.jar
                                      system guarantees
     --well-separation-ignore-sys     Check well-separation ignoring system
                                      guarantees
+
+```
 
 * * *
 # [](#header-1)**Demonstration Vedio**
