@@ -31,15 +31,12 @@ layout: default
 * * *
 # [](#header-1)**Usage**
 
-We provide the runnable JAR package of our tools [Download](resources/effbt_V1.0.jar)(50MB). 
+We provide the runnable JAR package of our tools [\[Download\]](resources/effbt_V1.0.jar) (50MB). 
 
 ```
 usage: java -jar spectra-cli.jar
-    --counter-strategy               Generate counter-strategy for an
-                                     unrealizable specification
-    --counter-strategy-jtlv-format   Generate counter-strategy for an
-                                     unrealizable specification and print
-                                     in JTLV format
+    --counter-strategy               Generate counter-strategy for an unrealizable specification
+    --counter-strategy-jtlv-format   Generate counter-strategy for an unrealizable specification and print in JTLV format
     --disable-grouping               Disable reorder with grouping
     --disable-opt <arg>              Disable optimizations
     --display                        Display generated controllers,
