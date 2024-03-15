@@ -40,7 +40,7 @@ layout: default
 
 # [](#header-1)**Usage**
 
-We provide the runnable JAR package of our tools \[[Download]\](resources/effbt_V1.0.jar) (50MB). 
+We provide the runnable JAR package of our tools [Download](resources/effbt_V1.0.jar) (50MB). 
 
 ```
 usage: java -jar spectra-cli.jar
