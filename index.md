@@ -28,10 +28,19 @@ layout: default
 
 *   `Transparent Compilation`: **CCMOP** provides a transparent compilation framework that avoids the tedious compilation configuration.
 
+
 * * *
+# [](#header-1)**Demonstration Vedio**
+
+<video width="860" height="485" controls>
+  <source src="resources/effbt.demo.mp4" type="video/mp4">
+</video>
+
+* * *
+
 # [](#header-1)**Usage**
 
-We provide the runnable JAR package of our tools [\[Download\]](resources/effbt_V1.0.jar) (50MB). 
+We provide the runnable JAR package of our tools \[[Download]\](resources/effbt_V1.0.jar) (50MB). 
 
 ```
 usage: java -jar spectra-cli.jar
@@ -59,13 +68,6 @@ usage: java -jar spectra-cli.jar
                                      guarantees
 
 ```
-
-* * *
-# [](#header-1)**Demonstration Vedio**
-
-<video width="860" height="485" controls>
-  <source src="resources/effbt.demo.mp4" type="video/mp4">
-</video>
 
 
 * * *
