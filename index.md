@@ -42,10 +42,13 @@ layout: default
 
 We provide the runnable JAR package of our tools [Download](resources/effbt_V1.0.jar) (50MB). 
 
+By the way, the recommonded JDK version is JDK 17 or greater, we didn't test it on other JDK versions/
+
 ```
 usage: java -jar spectra-cli.jar
     --counter-strategy               Generate counter-strategy for an unrealizable specification
-    --counter-strategy-jtlv-format   Generate counter-strategy for an unrealizable specification and print in JTLV format
+    --counter-strategy-jtlv-format   Generate counter-strategy for an unrealizable specification 
+                                     and print in JTLV format
     --disable-grouping               Disable reorder with grouping
     --disable-opt <arg>              Disable optimizations
     --display                        Display generated controllers,
