@@ -42,7 +42,7 @@ layout: default
 
 We provide the runnable JAR package of our tools [Download](resources/effbt_V1.0.jar) (50MB). 
 
-By the way, the recommonded JDK version is JDK 17 or greater, we didn't test it on other JDK versions/
+By the way, the recommonded JDK version is JDK 17 or greater. The JDK 13 is not supported and we didn't test it on other JDK versions.
 
 ```
 usage: java -jar spectra-cli.jar
