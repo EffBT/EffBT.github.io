@@ -14,19 +14,21 @@ layout: default
 
 *   [**Scenarios and Specifications**](specification)
 
-*   [**Evaluation results**](evaluation)
+*   [**Evaluation Results**](evaluation)
 
 *   [**Proofs**](proof)
+
+   The proofs of 
 
 * * *
 
 # [](#header-1)**Features**
 
-*   `Efficient`: The runtime overhead of **CCMOP** is acceptable, and the average runtime overhead is less than 10x compared to the original C/C++ programs. See more details in [**Evaluation results and reproduction**](evaluation).
+*   `Automatic Synthesis`:  **EffBT** takes as input the GR(1) specifications, and produce BTs that satisfy those specifications automatically. Compared to other synthesis methods, EffBT unifies the transition functions calculation. 
 
-*   `Source-level Instrumentation`: **CCMOP** provides an AOP framework implemented by source-level instrumentation carried out on abstract syntax trees (ASTs).
+*   `Efficient Execution`: Moreover, **EffBT** optimize the execution of synthesized BTs by structure improvement and the adoption of *Parallel* nodes, while none of the prior works focused on it, to the best of our knowledge. Experiments have demonstrated the improvement in execution speed of BTs. See more details in [**Evaluation Results**](evaluation).
 
-*   `Transparent Compilation`: **CCMOP** provides a transparent compilation framework that avoids the tedious compilation configuration.
+<!-- *   `Transparent Compilation`: **CCMOP** provides a transparent compilation framework that avoids the tedious compilation configuration. -->
 
 
 * * *
