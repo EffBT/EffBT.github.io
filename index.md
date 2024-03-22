@@ -6,19 +6,12 @@ layout: default
 
 * * *
 
+# [](#header-1)**Introduction**
+
+# [](#header-2)**Motivation**
+
 *   [**Introduction**](introduction)
 
-<!-- *   [**Manual**](manual) -->
-
-<!-- *   [**Tutorial**](tutorial) -->
-
-*   [**Scenarios and Specifications**](specification)
-
-*   [**Evaluation Results**](evaluation)
-
-*   [**Proofs**](proof)
-
-   The proofs of 
 
 * * *
 
@@ -73,6 +66,16 @@ usage: java -jar spectra-cli.jar
                                      guarantees
 
 ```
+
+* * *
+
+# [](#header-1)**Supporting Materials**
+
+*   [**Scenarios and Specifications**](specification)
+
+*   [**Evaluation Results**](evaluation)
+
+*   [**Proofs**](proof)
 
 
 * * *
