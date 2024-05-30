@@ -1,0 +1,79 @@
+spec FrozenLakePlus
+
+define DIM_SIZE := 8;
+
+env Int(1..DIM_SIZE)[2] beast;
+env boolean beastWait;
+sys Int(1..DIM_SIZE)[2] agent;
+
+asm initiallyBeastWaitFalse:
+!beastWait;
+
+asm initiallyBeastAtGoal:
+(beast[0] = 7) & (beast[1] = 8);
+
+gar initiallyAgentAtLeftUpperCorner:
+agent[0] = 1 & agent[1] = 1;
+
+predicate moveAgent(Int(1..DIM_SIZE) pos):
+  pos+1 = next(pos) |
+  pos   = next(pos) |
+  pos-1 = next(pos);
+
+predicate moveBeast(Int(1..DIM_SIZE) pos):
+  pos+1 = next(pos) |
+  pos   = next(pos) |
+  pos-1 = next(pos);
+  
+asm obsWaitSwitches:
+G (beastWait->next(!beastWait)) & (!beastWait->next(beastWait));
+
+asm obstacleDoesNotMoveWhenBeastWait:
+G beastWait -> (next(beast[0]) = beast[0] & next(beast[1]) = beast[1]);
+
+asm beastMovesAtMostOne:
+G moveBeast(beast[0]) & moveBeast(beast[1]);
+
+asm beastIsSmart:
+G  !beastWait -> ((beast[0] > agent[0] -> next(beast[0]) = beast[0] - 1) &
+   (beast[0] < agent[0] - 1 -> next(beast[0]) = beast[0] + 1) &
+   (beast[1] > agent[1] -> next(beast[1]) = beast[1] - 1) &
+   (beast[1] < agent[1] - 1 -> next(beast[1]) = beast[1] + 1));
+
+gar agentMovesAtMostOne:
+G moveAgent(agent[0]) & moveAgent(agent[1]);
+
+gar agentAvoidsBeast:
+G (agent[0] != next(beast[0]) | agent[1] != next(beast[1]));
+
+gar agentNotOnBeast:
+G (agent[0] != beast[0] | agent[1] != beast[1]) ;
+
+gar agentAvoidInfinitely0:
+G (agent[0] != 1 | agent[1] != 4);
+
+gar agentAvoidInfinitely1:
+G (agent[0] != 2 | agent[1] != 1);
+
+gar agentAvoidInfinitely2:
+G (agent[0] != 3 | agent[1] != 3);
+
+gar agentAvoidInfinitely3:
+G (agent[0] != 4 | agent[1] != 2);
+
+gar agentAvoidInfinitely4:
+G (agent[0] != 4 | agent[1] != 4);
+
+gar agentAvoidInfinitely5:
+G (agent[0] != 4 | agent[1] != 7);
+
+gar agentAvoidInfinitely6:
+G (agent[0] != 5 | agent[1] != 5);
+
+gar agentAvoidInfinitely7:
+G (agent[0] != 7 | agent[1] != 2);
+
+gar VisitInfinitelyOften0:
+GF (agent[0] = 8 & agent[1] = 8);
+
+// asm beastAvoidInfinitely\d\d?\d?\d?:\nG \(beast\[0\] != \d\d?\d? \| beast\[1\] != \d\d?\d?\);

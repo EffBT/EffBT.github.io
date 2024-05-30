@@ -1,0 +1,49 @@
+spec JobScheduler
+
+define N := 10;
+define K := 16;
+
+env Int(0..K) newJob;
+
+sys boolean isAssigned;
+sys Int(0..(N-1)) newJobAssignee;
+sys Int(0..K)[N] cyclesLeft;
+
+asm initNewJob:
+ini newJob = 0;
+
+gar initIsAssigned:
+ini isAssigned;
+
+gar initiallyAllFree:
+ini forall i in Int(0..(N-1)) . cyclesLeft[i] = 0;
+
+asm jobNotAssigned:
+alw (!isAssigned & newJob != 0) -> next(newJob) = newJob;
+
+gar noAssignee:
+alw !isAssigned -> newJobAssignee = 0;
+
+gar noJob:
+alw next(newJob = 0) -> next(!isAssigned);
+
+gar addCycles:
+alw newJob > 0 & isAssigned -> cyclesLeft[newJobAssignee] = newJob;
+
+gar newAssigneeNotBusy:
+alw forall i in Int(0..(N-1)) . cyclesLeft[i] != 0 -> (next(newJobAssignee) != i | !next(isAssigned));
+
+gar cyclesDecrease:
+alw forall i in Int(0..(N-1)) . (cyclesLeft[i] > 0 -> next(cyclesLeft[i]) = cyclesLeft[i] - 1);
+
+gar cyclesUnchanged:
+alw forall i in Int(0..(N-1)) . (cyclesLeft[i] = 0 -> (next(cyclesLeft[i]) = 0 | (i = next(newJobAssignee) & next(isAssigned))));
+
+gar finallyFree{Int(0..(N-1)) i}:
+alwEv cyclesLeft[i] = 0;
+
+gar dontDelayJobs:
+alw ((exists i in Int(0..(N-1)) . (cyclesLeft[i] = 0 & i != 4)) & next(newJob) > 0) -> next(isAssigned);
+
+gar serverMaintainance0:
+alw cyclesLeft[4] = 0;
