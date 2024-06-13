@@ -1,15 +1,3 @@
-<head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
-    </script>
-</head>
-
 # [](#header-1)**Introduction to EffBT**
 
 There are two main categories in terms of reactive synthesis for BTs. The first, such as TAMP\cite{tamp-21}, utilizes a model-checking-based strategy on general LTL and suggests synthesizing BTs from an emptiness-checking procedure over product automata, which is the production of the Buchi automata (converted from LTL specifications) and a transition system (describes the robot and environment). If the specification is realizable, the procedure identifies a counter-example path (i.e., state transitions), and then constructs BTs from this path. Nevertheless, the conversion from LTL to Buchi automata exhibits exponential time complexity, implying that the running time increases exponentially with the size of the formula. Consequently, approaches relying on this strategy inherently face the challenge of high computational complexity (at least EXPTIME).
