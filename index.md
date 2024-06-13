@@ -2,13 +2,10 @@
 layout: default
 ---
    
-**EffBT** is an effective behavior tree synthesis and execution framework, that fills the gap []. Besides, we optimized the execution efficiency of generated BTs by applying the **Parallel** node, while few prior focused on this aspect.
-
+**EffBT** is an efficient behavior tree reactive synthesis and execution framework, which fixes the drawback of irregular BTs in earlier studies caused by their calculation and construction methods. We unify them into GR(1) realizability check and propose an algorithm for constructing highly modularized BTs. Benefiting from this, we can enhance the execution efficiency of generated BTs by applying the *Parallel* node, while few focused on this aspect. The soundness of our method has been proved, and later experiment results in various scenarios and settings have presented that our method performs better in synthesis speed and synthesis quality.
 * * *
 
 <!-- # [](#header-1)**Introduction** -->
-
-<!-- # [](#header-2)**Motivation** -->
 
 *   [**Introduction**](introduction)
 
@@ -16,7 +13,7 @@ layout: default
 
 *   [**Evaluation Results and Analysis**](evaluation)
 
-*   [**Supporting Proofs**](proof)
+*   [**Extra Proofs**](proof)
 
 
 * * *
@@ -52,19 +49,20 @@ usage: java -jar spectra-cli.jar
                                      and print in JTLV format
     --disable-grouping               Disable reorder with grouping
     --disable-opt <arg>              Disable optimizations
-    --display                        Display generated controllers,
-                                     default flase
  -i,--input <arg>                    Spectra input file name
     --jtlv                           Use JTLV package instead of CUDD
  -o,--output <arg>                   Ouptut folder
     --reorder                        Reorder BDD before save for reduced
                                      size
  -s,--synthesize <arg>               Synthesize symbolic controller
- -sim,--simulate <arg>               Simulate n (from input) times of the
+    bt-seq                           EffBT
+    bt-raw                           Synthesis raw BT (the RawBT method)
+    bt-naive                         Synthesis naive BT (the NaiveBT method)
+    fds-static                       Synthesize static FDS symbolic controller (general GR(1))
+
+ -simu <arg>                         Simulate n (from input) times of the
                                      FDS by calculate succs
-    --static                         Synthesize static symbolic controller
- -synthBT,--synthBT <arg>            Synthesis a BT, while parms meaning
-                                     the synthesized BT type.
+ -display                            Print synthesis results to console, default false 
  -v,--verbose                        Verbose logging
     --well-separation                Check well-separation considering
                                      system guarantees
