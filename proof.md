@@ -25,5 +25,5 @@ For the formula $P \rightarrow P'$ and $P' \rightarrow P$, their truth tables ar
 |  1 | 0  | 1  |
 |  1 | 1  | 1  |
 
-
+Although their truth tables differ, assuming that P' is always true – a valid assumption since there is always a scenario where P' holds – the truth of the formula then hinges solely on the truth value of P, and consequently carries the same semantic meaning as $P \rightarrow P'$. Therefore, we have constructed identical behavior tree representations for these two patterns, reflecting their shared logical behavior under this particular assumption.
 
