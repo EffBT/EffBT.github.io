@@ -7,8 +7,7 @@ We demonstrate the specifications used in the experiment part of the Paper. Down
 
 ## [](#header-2) **1. The FrozenLake+ Scenario**
 
-The following figure demonstrates the Frozen Lake game in Gymnasium \cite{towers_gymnasium_2023}. Initially, a player is located at the upper left corner (1,1) of a frozen lake grid world with a goal located at the far end of the world (e.g., the lower right corner (8,8) of the map). Several ice holes are distributed in the lake and the player needs to visit the goal while avoiding falling into them. Following that, we expand the initial settings to the FrozenLake+ (also denoted as Frozen$^+$) by adding a beast who chases the player continuously and moves half as fast as the player. In the beginning, the beast is located at a random position next to a random goal (in this figure, the beast is located at position (7,8) next to the only goal). Now, the player needs to visit all goals infinitely often while avoiding being caught and falling.
-Various map sizes (including 8 $\times$ 8, 16 $\times$ 16, 24 $\times$ 24, and 32 $\times$ 32) of this scenario are generated, in which the occurrence probabilities of ice holes and goals are set to 0.125 and $\frac{1}{32}$ respectively during the generation.
+The following figure demonstrates the Frozen Lake game in Gymnasium [1]. Initially, a player is located at the upper left corner (1,1) of a frozen lake grid world with a goal located at the far end of the world (e.g., the lower right corner (8,8) of the map). Several ice holes are distributed in the lake and the player needs to visit the goal while avoiding falling into them. Following that, we expand the initial settings to the FrozenLake+ (also denoted as Frozen$^+$) by adding a beast who chases the player continuously and moves half as fast as the player. In the beginning, the beast is located at a random position next to a random goal (in this figure, the beast is located at position (7,8) next to the only goal). Now, the player needs to visit all goals infinitely often while avoiding being caught and falling. Various map sizes (including 8 $\times$ 8, 16 $\times$ 16, 24 $\times$ 24, and 32 $\times$ 32) of this scenario are generated, in which the occurrence probabilities of ice holes and goals are set to 0.125 and $\frac{1}{32}$ respectively during the generation.
 
 <br>
 
@@ -48,3 +47,10 @@ The number of disks in Hanoi is twelve.
 * [Job Scheduler](resources/spec-syntech/JobScheduler.spectra)
 * [Robot Arm](resources/spec-syntech/roboticarm.spectra)
 * [Self-Parking Smart Car](resources\spec-syntech\SelfParkingSmartCar.spectra)
+
+
+[1] Mark Towers, Jordan K. Terry, Ariel Kwiatkowski, John U. Balis, Gianluca de
+Cola, Tristan Deleu, Manuel Goulão, Andreas Kallinteris, Arjun KG, Markus
+Krimmel, Rodrigo Perez-Vicente, Andrea Pierré, Sander Schulhoff, Jun Jet Tai,
+Andrew Tan Jin Shen, and Omar G. Younis. 2023. Gymnasium. https://doi.org/
+10.5281/zenodo.8127026
