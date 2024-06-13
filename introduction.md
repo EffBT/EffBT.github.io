@@ -1,18 +1,19 @@
 # [](#header-1)**Introduction to EffBT**
 
-## **Motivation**
-Behavior Trees originate from the control of Non-Player-Characters (NPCs) and have been widely used in robotics because of their advantages in modularity, reactivity, and some others. Research on constructing BTs automatically has received widespread attention and lots of methods have been applied to it. Reactive synthesis obtains correct-by-construct BTs from formal specifications and has the advantage of a correction guarantee compared to other approaches. 
-However, the model-checking-based reactive synthesis suffers an EXPTIME complexity and the synthesis on fragment specifications needs to calculate different functions for each formula. Hence, we propose EffBT, which improves the synthesis efficiency by unifying the function calculation. Benefiting from the unification, we optimize the execution efficiency of obtained BTs by structure change and add the \textit{Parallel} node, while none of the prior works focused on this. Experiments have proved the effectiveness of our method.
+There are two main categories in terms of reactive synthesis for BTs. The first, such as TAMP\cite{tamp-21}, utilizes a model-checking-based strategy on general LTL and suggests synthesizing BTs from an emptiness-checking procedure over product automata, which is the production of the B{\"u}chi automata (converted from LTL specifications) and a transition system (describes the robot and environment). If the specification is realizable, the procedure identifies a counter-example path (i.e., state transitions), and then constructs BTs from this path. Nevertheless, the conversion from LTL to B{\"u}chi automata exhibits exponential time complexity, implying that the running time increases exponentially with the size of the formula. Consequently, approaches relying on this strategy inherently face the challenge of high computational complexity (at least EXPTIME).
+
+To reduce complexity, researchers propose obtaining BTs from F-LTL specifications rather than general LTL, forming the second strategy. In previous studies~\cite{mc-17}\cite{TADEWOS2022117022}, authors restrict formulas to LTL fragments and then obtain transition relations by calculating value functions, requirement functions, and constraint functions for each formula. Subsequently, they construct BTs from those functions. Our approach also embraces the second strategy but diverges significantly from previous efforts. Specifically, we calculate transition relations through a unified process, namely the realizability check of GR(1)~\cite{BLOEM2012911}, whereas earlier methods necessitate individual function calculations for each formula. Benefiting from this and the regularity of GR(1) formulas, we can modularly design BT structures and improve the execution efficiency of resulting BTs, such as adopting \textit{Parallel} nodes, yet none of the earlier approaches have considered this aspect.
 
 
 ## **EffBT's Framework**
-<!-- Insides **CCMOP**, we designed the framework based on JavaMOP and implemented the instrumentation at the AST level. The framework of **CCMOP** is shown in the following figure.   -->
 
-<!-- <br>
+In our work, we propose EffBT, an efficient behavior tree synthesis and execution framework. Given the game structure $GS$ and GR(1) specifications $\varphi$ as input, EffBT generates an executable BT that satisfies predefined objectives, in which $GS$ encapsulates the dynamic properties of the system and environment while $\varphi$ describes their objects. Our framework comprises two primary procedures, Step~1 and Step~2$'$, as depicted in Fig.~\ref{fig: procedure overview}~(follows the \textcolor{ForestGreen}{\textbf{green arrow}}). In the first step, we check the realizability of given specifications and construct two intermediate arrays mX[][][] and mY[][], which are similar to the operations in~\cite{BLOEM2012911}. This checking process is formulated as a two-player game $(GS,\varphi)$ and then solved by $\mu$-calculus. Following this, Step~2$'$ employs a construction algorithm we propose to generate BTs from the computed mX[][][] and mY[][] arrays. Besides, we further refine the structure of subtrees and incorporate \textit{Parallel} nodes based on the propositions in Sec.~\ref{sec: effbt}. This modification significantly enhances BT execution efficiency by reducing decision-making time.
+
+<br>
 
 <img src="resources/framework.png" alt="framework" style="display:block; margin:- auto;">
 
-<br> -->
+<br>
 
 The input of our method is the same as GR(1), which takes input as $(GS, \varphi)$.
 
