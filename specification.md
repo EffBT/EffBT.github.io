@@ -7,7 +7,7 @@ We demonstrate the specifications used in the experiment part of the Paper. Down
 
 ## [](#header-2) **1. The FrozenLake+ Scenario**
 
-Figure.~\ref{fig: frozen lake+ scene} demonstrates the Frozen Lake game in Gymnasium~\cite{towers_gymnasium_2023}. Initially, a player is located at the upper left corner (1,1) of a frozen lake grid world with a goal located at the far end of the world (e.g., the lower right corner (8,8) of the map). Several ice holes are distributed in the lake and the player needs to visit the goal while avoiding falling into them. Following that, we expand the initial settings to the FrozenLake+~(also denoted as Frozen$^+$) by adding a beast who chases the player continuously and moves half as fast as the player. In the beginning, the beast is located at a random position next to a random goal (in Fig.~\ref{fig: frozen lake+ scene}, the beast is located at position (7,8) next to the only goal). Now, the player needs to visit all goals infinitely often while avoiding being caught and falling.
+The following figure demonstrates the Frozen Lake game in Gymnasium~\cite{towers_gymnasium_2023}. Initially, a player is located at the upper left corner (1,1) of a frozen lake grid world with a goal located at the far end of the world (e.g., the lower right corner (8,8) of the map). Several ice holes are distributed in the lake and the player needs to visit the goal while avoiding falling into them. Following that, we expand the initial settings to the FrozenLake+~(also denoted as Frozen$^+$) by adding a beast who chases the player continuously and moves half as fast as the player. In the beginning, the beast is located at a random position next to a random goal (in this figure, the beast is located at position (7,8) next to the only goal). Now, the player needs to visit all goals infinitely often while avoiding being caught and falling.
 Various map sizes~(including 8 $\times$ 8, 16 $\times$ 16, 24 $\times$ 24, and 32 $\times$ 32) of this scenario are generated, in which the occurrence probabilities of ice holes and goals are set to 0.125 and $\frac{1}{32}$ respectively during the generation.
 
 <br>
@@ -39,7 +39,7 @@ For this scenario, we fix two variables: $A=5$ and $C=2$. This means that the st
 
 ## [](#header-2) **3. The SYNTECH Scenario**
 
-We also examine our methods on various tasks and scenarios from *SYNTECH*\footnote{\url{https://smlab.cs.tau.ac.il/syntech/spectra/index.html}}, including ConvoyCar, RobotArm, Humanoid Robot, Self-Parking Smart Cars, Job Scheduler, and Tower of Hanoi. 
+We also examine our methods on various tasks and scenarios from (*SYNTECH*)[https://smlab.cs.tau.ac.il/syntech/spectra/index.html], including ConvoyCar, RobotArm, Humanoid Robot, Self-Parking Smart Cars, Job Scheduler, and Tower of Hanoi. 
 The number of disks in Hanoi is twelve.
 
 * [Tower of Hanoi](resources/spec-syntech/Hanoi.spectra)
